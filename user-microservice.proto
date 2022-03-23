@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package user_microservice;
 
+option go_package = "github.com/wrs-news/bfb-user-microservice";
+
+
 service UserService {
     rpc CreateUser(NewUser) returns (User);
 }
