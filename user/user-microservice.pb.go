@@ -7,7 +7,7 @@
 package user
 
 import (
-	core "github.com/wrs-news/node-protocol/pkg/core"
+	core "github.com/wrs-news/node-protocol/core"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
