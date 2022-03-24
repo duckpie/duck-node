@@ -1,13 +1,15 @@
 syntax = "proto3";
 
-package user_microservice;
+package user;
+option go_package = "github.com/wrs-news/node-protocol/user";
 
-option go_package = "github.com/wrs-news/bfb-user-microservice";
+import "proto/core/error.proto";
 
 
 service UserService {
-    rpc CreateUser(NewUser) returns (User);
+    rpc CreateUser(NewUser) returns (UserResponse);
 }
+
 
 message NewUser {
     string login = 1;
@@ -24,4 +26,10 @@ message User {
     int32 role = 5;
     string created_at = 6;
     string updated_at = 7;
+}
+
+
+message UserResponse {
+    User user = 1;
+    core.Error error = 2;
 }
