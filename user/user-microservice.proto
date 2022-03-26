@@ -3,11 +3,9 @@ syntax = "proto3";
 package user;
 option go_package = "github.com/wrs-news/node-protocol/user";
 
-import "core/error.proto";
-
 
 service UserService {
-    rpc CreateUser(NewUser) returns (UserResponse);
+    rpc CreateUser(NewUser) returns (User);
 }
 
 
@@ -26,10 +24,4 @@ message User {
     int32 role = 5;
     string created_at = 6;
     string updated_at = 7;
-}
-
-
-message UserResponse {
-    User user = 1;
-    core.Error error = 2;
 }
