@@ -13,13 +13,13 @@ message NewUser {
     string login = 1;
     string email = 2;
     string password = 3;
-    string role = 4;    
 }
 
 message User {
     int32 id = 1;
-    string login = 2;
-    string email = 3;
+    string uuid = 2;
+    string login = 3;
+    string email = 4;
     int32 role = 5;
     string created_at = 6;
     string updated_at = 7;
