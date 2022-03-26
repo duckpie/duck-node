@@ -3,7 +3,7 @@ syntax = "proto3";
 package user;
 option go_package = "github.com/wrs-news/node-protocol/user";
 
-import "proto/core/error.proto";
+import "core/error.proto";
 
 
 service UserService {
