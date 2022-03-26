@@ -20,7 +20,6 @@ message User {
     int32 id = 1;
     string login = 2;
     string email = 3;
-    string password = 4;
     int32 role = 5;
     string created_at = 6;
     string updated_at = 7;
