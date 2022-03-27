@@ -11,7 +11,7 @@ service UserService {
     rpc GetUserById(UserReqID) returns (User);
     rpc GetUserByUuid(UserReqUuid) returns (User);
     rpc GetUserByLogin(UserReqLogin) returns (User);
-    rpc DeleteUser(UserReqID) returns (User);
+    rpc DeleteUser(UserReqUuid) returns (User);
     rpc UpdateUser(UpdateUserReq) returns (User);
     rpc GetAll(SelectionReq) returns (Selection);
 
@@ -27,7 +27,7 @@ message NewUserReq {
 message UpdateUserReq {
     string login = 1;
     string email = 2;
-    string role = 3;
+    int32 role = 3;
 }
 
 message UserReqID {
