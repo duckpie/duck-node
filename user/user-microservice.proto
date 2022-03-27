@@ -8,7 +8,9 @@ import "google/protobuf/empty.proto";
 
 service UserService {
     rpc CreateUser(NewUser) returns (User);
-    rpc GetUser(UserReq) returns (User);
+    rpc GetUserById(UserReq) returns (User);
+    rpc GetUserByUuid(UserReq) returns (User);
+    rpc GetUserByLogin(UserReq) returns (User);
     rpc DeleteUser(UserReq) returns (User);
     rpc GetAll(SelectionReq) returns (Selection);
 
