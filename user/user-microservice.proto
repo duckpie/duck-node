@@ -12,6 +12,7 @@ service UserService {
     rpc GetUserByUuid(UserReqUuid) returns (User);
     rpc GetUserByLogin(UserReqLogin) returns (User);
     rpc DeleteUser(UserReqID) returns (User);
+    rpc UpdateUser(UpdateUserReq) returns (User);
     rpc GetAll(SelectionReq) returns (Selection);
 
     rpc HeartbeatCheck(google.protobuf.Empty) returns (google.protobuf.Empty);
@@ -21,6 +22,12 @@ message NewUserReq {
     string login = 1;
     string email = 2;
     string password = 3;
+}
+
+message UpdateUserReq {
+    string login = 1;
+    string email = 2;
+    string role = 3;
 }
 
 message UserReqID {
