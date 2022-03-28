@@ -25,9 +25,10 @@ message NewUserReq {
 }
 
 message UpdateUserReq {
-    string login = 1;
-    string email = 2;
-    int32 role = 3;
+    string uuid = 1;
+    string login = 2;
+    string email = 3;
+    int32 role = 4;
 }
 
 message UserReqID {
