@@ -1,16 +1,21 @@
 syntax = "proto3";
 
-package user;
+package tass;
 option go_package = "github.com/wrs-news/node-protocol/parser/tass";
 
 import "google/protobuf/empty.proto";
 
 service TassParserService {
     rpc UpdateHeaderParams(HeaderParams) returns (google.protobuf.Empty);
-    rpc GetData(FilterParams) returns (TassData);
+    rpc GetData(FilterParams) returns (TassDataRes);
+    rpc GetCertainRecords(CertainRecords) returns (TassDataRes);
 
     rpc HeartbeatCheck(google.protobuf.Empty) returns (google.protobuf.Empty);
 } 
+
+message CertainRecords {
+    repeated int64 ids = 1;
+}
 
 message HeaderParams {
     string user_agent = 1;
@@ -28,4 +33,9 @@ message TassData {
     string link = 2;
     string img = 3;
     int64 date = 4;
+}
+
+message TassDataRes {
+    repeated TassData data = 1;
+    int32 total = 2;
 }

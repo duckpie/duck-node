@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package parser;
+option go_package = "github.com/wrs-news/node-protocol/parser";
+
+import "google/protobuf/empty.proto";
+
+service AggregatorService {
+    rpc HeartbeatCheck(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
