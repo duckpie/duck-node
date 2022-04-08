@@ -54,8 +54,9 @@ message User {
     string login = 3;
     string email = 4;
     int32 role = 5;
-    string created_at = 6;
-    string updated_at = 7;
+    string hash = 6;
+    string created_at = 7;
+    string updated_at = 8;
 }
 
 
