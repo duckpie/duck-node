@@ -6,16 +6,21 @@ option go_package = "github.com/wrs-news/node-protocol/security";
 import "google/protobuf/empty.proto";
 
 service SecurityService {
-    rpc Login(LoginReq) returns (Token);
-    rpc AuthCheck(google.protobuf.Empty) returns(AuthCheckRes);
-    rpc RefreshToken(Token) returns (Token); 
+    rpc Login(LoginReq) returns (TokensPair);
+    rpc AuthCheck(google.protobuf.Empty) returns (AuthCheckResp);
+    rpc RefreshToken(RefreshTokenReq) returns (TokensPair); 
     rpc Logout(google.protobuf.Empty) returns (google.protobuf.Empty); 
 
     rpc HeartbeatCheck(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
 
-message Token{ 
+message TokensPair{ 
     string refresh_token = 1;
+    string access_token = 2;
+}
+
+message RefreshTokenReq {
+    string token = 1;
 }
 
 message LoginReq{
@@ -23,6 +28,6 @@ message LoginReq{
     string password = 2;
 }
 
-message AuthCheckRes {
+message AuthCheckResp {
     bool is_auth = 1;
 }
