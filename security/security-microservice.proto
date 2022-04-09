@@ -7,7 +7,7 @@ import "google/protobuf/empty.proto";
 
 service SecurityService {
     rpc Login(LoginReq) returns (TokensPair);
-    rpc AuthCheck(AuthCheckReq) returns (AuthCheckResp);
+    rpc AuthCheck(AuthCheckReq) returns (google.protobuf.Empty);
     rpc RefreshToken(RefreshTokenReq) returns (TokensPair); 
     rpc Logout(google.protobuf.Empty) returns (google.protobuf.Empty); 
 
@@ -30,8 +30,4 @@ message RefreshTokenReq {
 message LoginReq{
     string login = 1;
     string password = 2;
-}
-
-message AuthCheckResp {
-    bool is_auth = 1;
 }
