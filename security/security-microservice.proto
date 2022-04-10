@@ -9,7 +9,7 @@ service SecurityService {
     rpc Login(LoginReq) returns (TokensPair);
     rpc AuthCheck(AuthCheckReq) returns (google.protobuf.Empty);
     rpc RefreshToken(RefreshTokenReq) returns (TokensPair); 
-    rpc Logout(google.protobuf.Empty) returns (google.protobuf.Empty); 
+    rpc Logout(LogoutReq) returns (google.protobuf.Empty); 
 
     rpc HeartbeatCheck(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
@@ -24,6 +24,10 @@ message AuthCheckReq {
 }
 
 message RefreshTokenReq {
+    string token = 1;
+}
+
+message LogoutReq {
     string token = 1;
 }
 
